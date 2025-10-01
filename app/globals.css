@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: all;
+}
+
+.loader {
+  width: 160px;
+  height: 100px;
+  margin-left: -80px;
+  margin-top: -50px;
+  border-radius: 5px;
+  animation: dot1_ 3s cubic-bezier(0.55, 0.3, 0.24, 0.99) infinite;
+}
+
+.loader2 {
+  width: 150px;
+  height: 90px;
+  margin-left: -75px;
+  margin-top: -45px;
+  border-radius: 3px;
+  animation: dot2_ 3s cubic-bezier(0.55, 0.3, 0.24, 0.99) infinite;
+}
+
+.loader3 {
+  width: 40px;
+  height: 20px;
+  margin-left: -20px;
+  margin-top: 50px;
+  border-radius: 0 0 5px 5px;
+  animation: dot3_ 3s cubic-bezier(0.55, 0.3, 0.24, 0.99) infinite;
+}
+
+/* Animations */
+@keyframes dot1_ {
+  3%,
+  97% {
+    width: 160px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -80px;
+  }
+  30%,
+  36% {
+    width: 80px;
+    height: 120px;
+    margin-top: -60px;
+    margin-left: -40px;
+  }
+  63%,
+  69% {
+    width: 40px;
+    height: 80px;
+    margin-top: -40px;
+    margin-left: -20px;
+  }
+}
+
+@keyframes dot2_ {
+  3%,
+  97% {
+    width: 150px;
+    height: 90px;
+    margin-top: -45px;
+    margin-left: -75px;
+  }
+  30%,
+  36% {
+    width: 70px;
+    height: 96px;
+    margin-top: -48px;
+    margin-left: -35px;
+  }
+  63%,
+  69% {
+    width: 32px;
+    height: 60px;
+    margin-top: -30px;
+    margin-left: -16px;
+  }
+}
+
+@keyframes dot3_ {
+  3%,
+  97% {
+    width: 40px;
+    height: 20px;
+    margin-top: 50px;
+    margin-left: -20px;
+  }
+  30%,
+  36% {
+    width: 8px;
+    height: 8px;
+    margin-top: 49px;
+    margin-left: -5px;
+    border-radius: 8px;
+  }
+  63%,
+  69% {
+    width: 16px;
+    height: 4px;
+    margin-top: -37px;
+    margin-left: -8px;
+    border-radius: 10px;
+  }
+}
