@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
       >
         <Navbar />
         {/* Large screen content offset for sidebar */}
-        <div className="w-full mt-12 lg:mt-0 lg:ml-52 py-4 px-3 lg:px-5 ">{children}</div>
+        <div className="w-full mt-12 lg:mt-0 lg:ml-52 py-4 px-3 lg:px-5 pb-5 lg:pb-10">{children}</div>
       </body>
     </html>
   );

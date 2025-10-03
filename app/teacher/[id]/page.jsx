@@ -140,7 +140,7 @@ const Page = () => {
         </div>
 
         {/* Actions */}
-        <div className="card-actions flex justify-between pb-6">
+        <div className="card-actions flex justify-end sm:justify-between pb-6">
           <div className="flex gap-3">
             <Link
               href={`/teacher/update/${id}`}

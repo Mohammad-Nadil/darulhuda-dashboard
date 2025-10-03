@@ -5,6 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import api from "../../utils/axios";
 import Loader from "../../components/Loader";
 import FileInput from "../../components/FileInput";
+import Link from "next/link";
 
 const Page = () => {
   const router = useRouter();
@@ -97,10 +98,10 @@ const Page = () => {
         <h2 className="text-2xl font-bold text-primary  ">Add New Teacher</h2>
 
         {/* Body */}
-        <div className="card-body">
+        <div className="py-4">
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
             {/* Image Upload */}
-            <div className=" w-1/4">
+            <div className=" w-1/2 md:w-1/4">
               <FileInput
                 file={file}
                 setFile={setFile}
@@ -261,10 +262,18 @@ const Page = () => {
               </div>
             </div>
             {/* Submit */}
-            <div className="md:col-span-2 flex justify-end ">
+            <div className="md:col-span-2 flex justify-end gap-x-5 ">
+              <Link
+                href="/teacher"
+                className=" btn
+               btn-primary
+                px-8 hover:scale-110 duration-300 transition-all"
+              >
+                back
+              </Link>
               <button
                 type="submit"
-                className="btn bg-gradient-to-r from-primary to-secondary text-white px-8"
+                className="btn bg-gradient-to-r from-primary to-secondary text-white px-8 hover:scale-110 duration-300 transition-all"
               >
                 Add Teacher
               </button>

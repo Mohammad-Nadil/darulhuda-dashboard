@@ -120,10 +120,10 @@ const Page = () => {
         <h2 className="text-2xl font-bold text-primary  ">Update Teacher</h2>
 
         {/* Body */}
-        <div className="card-body">
+        <div className="py-4">
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
             {/* Image Upload */}
-            <div className="w-1/4">
+            <div className=" w-1/2 lg:w-1/4">
               <FileInput
                 file={file}
                 setFile={setFile}

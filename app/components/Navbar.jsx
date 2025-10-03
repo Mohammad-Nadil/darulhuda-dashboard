@@ -11,6 +11,7 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
+import { Image } from "antd";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -28,8 +29,8 @@ const Navbar = () => {
     <>
       {/* Mobile Top Navbar */}
       <div className="lg:hidden w-full bg-white shadow-md flex items-center justify-between px-4 py-3 fixed top-0 z-50">
-        <a href="/" className="text-xl font-bold">
-          Logo
+        <a href="/" className="flex justify-center">
+          <Image src="/logo.png" alt="Logo" width={40} height={40} />
         </a>
         <button onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -47,7 +48,15 @@ const Navbar = () => {
           } lg:translate-x-0 z-40
         `}
       >
-        <div className="logo text-xl font-bold hidden lg:block">Logo</div>
+        <a href="/" className="flex justify-center">
+          <Image
+            preview={false}
+            src="/logo.png"
+            alt="Logo"
+            width={80}
+            height={80}
+          />
+        </a>
         <ul className="flex flex-col gap-4">
           {menu.map((item, index) => {
             const isActive = pathname === item.link;

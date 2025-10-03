@@ -97,7 +97,7 @@ const StudentPage = () => {
                       className="cursor-pointer hover:bg-primary/15 duration-300 text-center "
                       onClick={() => router.push(`/student/${student._id}`)}
                     >
-                      <td className="py-2" >
+                      <td className="" >
                         <div className="avatar">
                           <div className="w-12 h-16 ">
                             <Image

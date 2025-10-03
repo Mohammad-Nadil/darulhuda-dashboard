@@ -74,22 +74,22 @@ const TeacherPage = () => {
               <h1 className="text-xl font-bold">{cls.name}</h1>
               <table className="table table-zebra w-full shadow-lg">
                 <thead className="bg-primary text-white">
-                  <tr>
+                  <tr className="text-center" >
                     <th>Image</th>
                     <th>Name</th>
                     <th>Phone</th>
-                    <th>Education</th>
-                    <th>Branch</th>
+                    <th className="hidden sm:table-cell ">Education</th>
+                    <th className="hidden sm:table-cell ">Branch</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="" >
                   {filtered.map((teacher) => (
                     <tr
                       key={teacher._id}
-                      className="cursor-pointer hover:bg-primary/15 duration-300"
+                      className=" cursor-pointer hover:bg-primary/15 duration-300"
                       onClick={() => router.push(`/teacher/${teacher._id}`)}
                     >
-                      <td>
+                      <td className="py-1" >
                         <div className="avatar">
                           <div className="w-12 h-16">
                             <Image
@@ -107,8 +107,8 @@ const TeacherPage = () => {
                       </td>
                       <td>{teacher.name}</td>
                       <td>{teacher.phone}</td>
-                      <td>{teacher.education}</td>
-                      <td>{teacher.branch}</td>
+                      <td className="hidden sm:table-cell px-1">{teacher.education}</td>
+                      <td className="hidden sm:table-cell ">{teacher.branch}</td>
                     </tr>
                   ))}
                 </tbody>
