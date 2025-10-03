@@ -6,23 +6,14 @@ import api from "../utils/axios";
 import Link from "next/link";
 import { FaFilePdf } from "react-icons/fa";
 
-const Card = ({
-  id,
-  title,
-  date,
-  description,
-  image,
-  onDelete,
-  time,
-  vertical,
-}) => {
+const Card = ({ id, title, date, description, image, onDelete, time }) => {
   return (
     <div className="card bg-base-200 shadow-lg hover:shadow-xl transition-all duration-300 rounded-lg group overflow-hidden">
       <figure className="aspect-video w-full group-hover:scale-105 transition-transform duration-500">
         <img
           src={image && image.trim() !== "" ? image : "/eventPlaceHolder.png"}
           alt={title || "Untitled Announcement"}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+          className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
         />
       </figure>
 
@@ -39,9 +30,6 @@ const Card = ({
         <p className="text-gray-700  line-clamp-3">
           {description || "No description available for this announcement."}
         </p>
-        <div className="flex gap-4">
-          <p>vertical: {vertical ? "true" : "false"}</p>
-        </div>
         <div className="card-actions justify-end ">
           <Link
             href={`/announcement/update/${id}`}
@@ -114,13 +102,13 @@ const Page = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="p-4 flex flex-col h-full w-full">
+    <div className="py-2 flex flex-col h-full w-full pt-5">
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+      <div className="flex flex-row justify-between items-center gap-4 mb-6">
         <input
           type="text"
           placeholder="Search announcements..."
-          className="input input-bordered w-full max-w-xs"
+          className="input input-bordered lg:w-full lg:max-w-xs"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -128,12 +116,12 @@ const Page = () => {
           href="/announcement/add"
           className="btn hover:bg-primary duration-300 hover:text-primary-content"
         >
-          Add Announcement
+          Add <span className="hidden sm:inline">Announcement</span>
         </Link>
       </div>
       <div className="flex-1 overflow-auto">
         {filteredAnnouncements.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid  sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredAnnouncements.map((ann) => (
               <Card
                 key={ann._id}
@@ -143,7 +131,6 @@ const Page = () => {
                 description={ann.description}
                 image={ann.file?.secure_url}
                 time={ann.time}
-                vertical={ann.vertical}
                 onDelete={handleDelete}
               />
             ))}

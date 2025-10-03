@@ -74,12 +74,12 @@ const Page = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="flex flex-col gap-6 p-6">
+    <div className="flex flex-col gap-6 ">
       <Toaster position="top-center" reverseOrder={false} />
-      <h2 className="text-2xl font-bold text-primary">Update Announcement</h2>
+      <h2 className="text-2xl font-bold text-primary">Add Announcement</h2>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         {/* File Upload */}
-        <div className="w-full flex justify-between ">
+        <div className="w-full flex flex-col sm:flex-row justify-between ">
           <div className={`img w-2/3 h-60   flex ${vertical ? "" : ""}`}>
             <div className={` ${vertical ? "" : " h-2/3"}`}>
               <FileInput
@@ -91,31 +91,29 @@ const Page = () => {
               />
             </div>
           </div>
-          <div className="flex gap-5 w-1/3">
-            <div className="flex flex-col gap-3 items-center w-2/3 py-3 justify-top ">
-              <button
-                type="button"
-                onClick={() => setVertical(true)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 font-medium shadow-md hover:scale-105 hover:shadow-lg w-full justify-center ${
-                  vertical
-                    ? "bg-gradient-to-r from-primary to-secondary text-white"
-                    : "bg-primary-content text-primary"
-                }`}
-              >
-                <FaArrowsAltV className="text-lg" /> Vertical
-              </button>
-              <button
-                type="button"
-                onClick={() => setVertical(false)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 font-medium shadow-md hover:scale-105 hover:shadow-lg w-full justify-center ${
-                  !vertical
-                    ? "bg-gradient-to-r from-primary to-secondary text-white"
-                    : "bg-primary-content text-primary "
-                }`}
-              >
-                <FaArrowsAltH className="text-lg" /> Horizontal
-              </button>
-            </div>
+          <div className="flex flex-row sm:flex-col gap-3 items-center sm:w-2/3 py-3 justify-top ">
+            <button
+              type="button"
+              onClick={() => setVertical(true)}
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 font-medium shadow-md hover:scale-105 hover:shadow-lg w-1/2 sm:w-40 justify-center ${
+                vertical
+                  ? "bg-gradient-to-r from-primary to-secondary text-white"
+                  : "bg-primary-content text-primary"
+              }`}
+            >
+              <FaArrowsAltV className="text-lg" /> Vertical
+            </button>
+            <button
+              type="button"
+              onClick={() => setVertical(false)}
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 font-medium shadow-md hover:scale-105 hover:shadow-lg w-1/2 sm:w-40 justify-center ${
+                !vertical
+                  ? "bg-gradient-to-r from-primary to-secondary text-white"
+                  : "bg-primary-content text-primary "
+              }`}
+            >
+              <FaArrowsAltH className="text-lg" /> Horizontal
+            </button>
           </div>
         </div>
         <input
@@ -156,7 +154,7 @@ const Page = () => {
             type="submit"
             className="btn bg-gradient-to-r from-primary to-secondary text-white hover:bg-gradient-to-r hover:from-primary/70 hover:to-secondary/70 transition-all duration-300"
           >
-            Update Announcement
+            Add Announcement
           </button>
         </div>
       </form>

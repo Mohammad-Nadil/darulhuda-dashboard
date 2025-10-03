@@ -50,7 +50,7 @@ const StudentPage = () => {
   }
 
   return (
-    <div className="flex flex-col gap-5 h-full w-full">
+    <div className="flex flex-col gap-5 pt-5 h-full w-full">
       <Toaster position="top-center" reverseOrder={false} />
       {/* 🔍 Search Bar */}
       <div className="flex justify-between gap-3">
@@ -59,13 +59,13 @@ const StudentPage = () => {
           placeholder="Search student by name..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="input input-bordered w-2/3 shadow-sm"
+          className="input input-bordered sm:w-2/3 shadow-sm"
         />
         <Link
           href="/student/add"
-          className="btn hover:bg-primary duration-300 hover:text-primary-content"
+          className="btn hover:bg-primary duration-300 hover:text-primary-content "
         >
-          Add Student
+          Add <span className="hidden sm:inline" >Student</span>
         </Link>
       </div>
 

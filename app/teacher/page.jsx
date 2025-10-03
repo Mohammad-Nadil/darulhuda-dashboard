@@ -45,7 +45,7 @@ const TeacherPage = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="flex flex-col gap-5 h-full w-full">
+    <div className="flex flex-col gap-5 h-full pt-5 w-full">
       <Toaster position="top-center" reverseOrder={false} />
       {/* 🔍 Search Bar */}
       <div className="flex justify-between gap-3">
@@ -60,7 +60,7 @@ const TeacherPage = () => {
           href="/teacher/add"
           className="btn hover:bg-primary duration-300 hover:text-primary-content"
         >
-          Add Teacher
+          Add <span className="hidden sm:inline" >Teacher</span>
         </Link>
       </div>
 
@@ -86,7 +86,7 @@ const TeacherPage = () => {
                   {filtered.map((teacher) => (
                     <tr
                       key={teacher._id}
-                      className=" cursor-pointer hover:bg-primary/15 duration-300"
+                      className=" cursor-pointer hover:bg-primary/15 duration-300 text-center text-sm sm:text-base"
                       onClick={() => router.push(`/teacher/${teacher._id}`)}
                     >
                       <td className="py-1" >

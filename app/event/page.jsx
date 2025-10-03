@@ -98,13 +98,13 @@ const Page = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="p-4 flex flex-col h-full w-full">
+    <div className="py-4 flex flex-col h-full w-full">
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+      <div className="flex  justify-between items-center gap-4 mb-6">
         <input
           type="text"
           placeholder="Search events..."
-          className="input input-bordered w-full max-w-xs"
+          className="input input-bordered w-full "
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -112,7 +112,7 @@ const Page = () => {
           href="/event/add"
           className="btn hover:bg-primary duration-300 hover:text-primary-content"
         >
-          Add Event
+          Add <span className="hidden md:inline" >Event</span>
         </Link>
       </div>
       <div className="flex-1 overflow-auto">
