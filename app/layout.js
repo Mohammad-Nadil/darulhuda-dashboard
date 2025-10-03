@@ -8,14 +8,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-white h-dvh">
       <body
         cz-shortcut-listen="true"
-        className={` flex h-screen w-screen  overflow-x-hidden`}
+        className="flex  w-screen h-full  bg-white"
         data-theme="winter"
       >
         <Navbar />
-        <div className="w-5/6 py-4 px-5 ">{children}</div>
+        {/* Large screen content offset for sidebar */}
+        <div className="w-full mt-12 lg:mt-0 lg:ml-52 py-4 px-3 lg:px-5 ">{children}</div>
       </body>
     </html>
   );

@@ -61,7 +61,10 @@ const StudentPage = () => {
           onChange={(e) => setSearch(e.target.value)}
           className="input input-bordered w-2/3 shadow-sm"
         />
-        <Link href="/student/add" className="btn hover:bg-primary duration-300 hover:text-primary-content">
+        <Link
+          href="/student/add"
+          className="btn hover:bg-primary duration-300 hover:text-primary-content"
+        >
           Add Student
         </Link>
       </div>
@@ -76,27 +79,27 @@ const StudentPage = () => {
               <h1 className="text-xl font-bold">{cls.name}</h1>
               <table className="table table-zebra w-full shadow-lg">
                 <thead className="bg-primary text-white">
-                  <tr>
-                    <th>Image</th>
+                  <tr className="text-center">
+                    <th className="">Image</th>
                     <th>Name</th>
                     <th>Roll</th>
-                    <th>Age</th>
-                    <th>Father</th>
-                    <th>Mother</th>
-                    <th>City</th>
-                    <th>Total Fees</th>
+                    <th className="hidden sm:table-cell">Age</th>
+                    <th className="hidden sm:table-cell">Father</th>
+                    <th className="hidden sm:table-cell">Mother</th>
+                    <th className="hidden sm:table-cell">City</th>
+                    <th className="hidden sm:table-cell">Total Fees</th>
                   </tr>
                 </thead>
                 <tbody>
                   {filtered.map((student) => (
                     <tr
                       key={student._id}
-                      className="cursor-pointer hover:bg-primary/15 duration-300"
+                      className="cursor-pointer hover:bg-primary/15 duration-300 text-center "
                       onClick={() => router.push(`/student/${student._id}`)}
                     >
-                      <td>
+                      <td className="py-2" >
                         <div className="avatar">
-                          <div className="w-12 h-16">
+                          <div className="w-12 h-16 ">
                             <Image
                               preview={false}
                               src={
@@ -113,19 +116,21 @@ const StudentPage = () => {
                       </td>
                       <td>{student.name}</td>
                       <td>{student.rollNumber}</td>
-                      <td>{student.age}</td>
-                      <td>
+                      <td className="hidden sm:table-cell">{student.age}</td>
+                      <td className="hidden sm:table-cell">
                         {student.fatherName} <br />
                         {student.fatherOccupation} <br />
                         {student.fatherMobile}
                       </td>
-                      <td>
+                      <td className="hidden sm:table-cell">
                         {student.motherName} <br />
                         {student.motherOccupation} <br />
                         {student.motherMobile}
                       </td>
-                      <td>{student.city}</td>
-                      <td>{student.totalFee}</td>
+                      <td className="hidden sm:table-cell">{student.city}</td>
+                      <td className="hidden sm:table-cell">
+                        {student.totalFee}
+                      </td>
                     </tr>
                   ))}
                 </tbody>

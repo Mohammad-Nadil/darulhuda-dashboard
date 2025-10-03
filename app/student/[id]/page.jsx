@@ -141,159 +141,165 @@ export default function StudentDetailsPage() {
     return <p className="text-red-500 font-bold">Student not found!</p>;
 
   return (
-    <div className="mx-auto space-y-6">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row items-center gap-6 bg-gradient-to-r from-primary/5 to-secondary/5 p-4 rounded-3xl shadow-lg border-l-4 border-indigo-300">
-        <div className="flex-shrink-0 w-1/6">
-          <AntdImage
-            src={student.imageUrl || "/studentPlaceholder.jpg"}
-            alt={student.name || "Student"}
-            className="rounded-2xl object-contain aspect-[5/6]"
-            preview
-          />
-        </div>
+<div className="mx-auto space-y-6">
+  {/* Header */}
+  <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 bg-gradient-to-r from-primary/5 to-secondary/5 p-4 rounded-3xl shadow-lg border-l-4 border-indigo-300">
+    {/* Image */}
+    <div className="flex-shrink-0 w-32 sm:w-40 md:w-48 lg:w-60">
+      <AntdImage
+        src={student.imageUrl || "/studentPlaceholder.jpg"}
+        alt={student.name || "Student"}
+        className="rounded-2xl object-cover aspect-[5/6] w-full h-auto"
+        preview
+      />
+    </div>
 
-        <div className="flex-1 flex flex-col justify-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-indigo-700 mb-2">
-            {student.name}
-          </h1>
+    {/* Info */}
+    <div className="flex-1 flex flex-col justify-center  lg:text-left">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-indigo-700 mb-2">
+        {student.name}
+      </h1>
 
-          <div className="flex flex-wrap gap-4 text-lg text-gray-700 mb-2">
-            <p>
-              Roll:{" "}
-              <span className="font-semibold text-indigo-600">
-                {student.rollNumber}
-              </span>
-            </p>
-            <p>
-              Class:{" "}
-              <span className="font-semibold text-indigo-600">
-                {studentClass.name}
-              </span>
-            </p>
-            <p>
-              Branch:{" "}
-              <span className="font-semibold text-indigo-600">
-                {student.branch}
-              </span>
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-6 text-gray-700 text-lg">
-            <p>
-              Age: <span className="font-semibold">{student.age}</span>
-            </p>
-            <p>
-              Gender:{" "}
-              <span className="font-semibold capitalize">{student.gender}</span>
-            </p>
-            <p>
-              Blood Group:{" "}
-              <span className="inline-block px-3 py-1 text-sm font-semibold text-white bg-indigo-600 rounded-full shadow">
-                {student.bloodGroup}
-              </span>
-            </p>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-3">
-          <Link
-            href={`/student/update/${id}`}
-            className="btn btn-primary gap-2 hover:bg-indigo-600 hover:text-white hover:scale-105 transition transform duration-300"
-          >
-            <FiEdit className="text-lg" />
-            Edit Student
-          </Link>
-          <button
-            className="btn btn-error gap-2 hover:bg-red-600 hover:text-white hover:scale-105 transition transform duration-300"
-            onClick={handleDelete}
-          >
-            <FiTrash2 className="text-lg" />
-            Delete Student
-          </button>{" "}
-          <Link
-            href={"/"}
-            className="btn bg-secondary hover:bg-secondary/70 text-secondary-content"
-          >
-            back
-          </Link>
-        </div>
-      </div>
-
-      {/* Parents & Guardian */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <InfoCard
-          title="Father"
-          value={`${student.fatherName} - ${student.fatherOccupation}`}
-          num={student.fatherMobile}
-          color="text-primary"
-          border="border-primary"
-        />
-        <InfoCard
-          title="Mother"
-          value={`${student.motherName} - ${student.motherOccupation}`}
-          num={student.motherMobile}
-          color="text-pink-600"
-          border="border-pink-600"
-        />
-        <InfoCard
-          title={`Guardian (${student.guardianRelation})`}
-          value={`${student.guardianName} - ${student.guardianOccupation} `}
-          num={student.guardianMobile}
-          color="text-indigo-600"
-          border="border-indigo-600"
-        />
-      </div>
-
-      {/* Address */}
-      <div className="card bg-gradient-to-r from-primary/5 to-secondary/5 shadow-xl p-3 rounded-xl border-l-4 border-indigo-300">
-        <h2 className="font-bold text-lg mb-3 text-secondary">Address</h2>
+      <div className="flex flex-wrap justify-start gap-4 text-base md:text-lg text-gray-700 mb-2">
         <p>
-          <span className="font-semibold">Present:</span>{" "}
-          {student.presentAddress}
+          Roll:{" "}
+          <span className="font-semibold text-indigo-600">
+            {student.rollNumber}
+          </span>
         </p>
         <p>
-          <span className="font-semibold">Permanent:</span>{" "}
-          {student.permanentAddress}
+          Class:{" "}
+          <span className="font-semibold text-indigo-600">
+            {studentClass.name}
+          </span>
         </p>
         <p>
-          <span className="font-semibold">City:</span> {student.city}
+          Branch:{" "}
+          <span className="font-semibold text-indigo-600">
+            {student.branch}
+          </span>
         </p>
       </div>
 
-      {/* Fees */}
-      <div className="card bg-gradient-to-r from-primary/5 to-secondary/5 shadow-xl p-3 rounded-xl border-l-4 border-primary">
-        <h2 className="font-bold text-lg mb-3 text-indigo-700">Fees</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <p>
-            Admission:{" "}
-            <span className="font-semibold text-indigo-600">
-              {student.admissionFee} Tk
-            </span>
-          </p>
-          <p>
-            Monthly:{" "}
-            <span className="font-semibold text-indigo-600">
-              {student.monthlyFee} Tk
-            </span>
-          </p>
-          <p>
-            Food:{" "}
-            <span className="font-semibold text-indigo-600">
-              {student.foodFee} Tk
-            </span>
-          </p>
-          <p>
-            Others:{" "}
-            <span className="font-semibold text-indigo-600">
-              {student.othersFee} Tk
-            </span>
-          </p>
-        </div>
-        <p className="font-extrabold mt-4 text-right text-xl text-indigo-800">
-          Total: {student.totalFee} Tk
+      <div className="flex flex-wrap jjustify-start gap-x-3 gap-y-1.5 lg:gap-y-6 text-gray-700 text-base md:text-lg">
+        <p>
+          Age: <span className="font-semibold">{student.age}</span>
+        </p>
+        <p>
+          Gender:{" "}
+          <span className="font-semibold capitalize">{student.gender}</span>
+        </p>
+        <p>
+          Blood Group:{" "}
+          <span className="inline-block px-3 py-1 text-sm font-semibold text-white bg-indigo-600 rounded-full shadow">
+            {student.bloodGroup}
+          </span>
         </p>
       </div>
     </div>
+
+    {/* Buttons */}
+    <div className="flex flex-row lg:flex-col justify-center gap-3 w-full lg:w-auto mt-4 lg:mt-0">
+      <Link
+        href={`/student/update/${id}`}
+        className="btn btn-primary gap-2 hover:bg-indigo-600 hover:text-white hover:scale-105 transition transform duration-300"
+      >
+        <FiEdit className="text-lg" />
+        Edit
+      </Link>
+      <button
+        className="btn btn-error gap-2 hover:bg-red-600 hover:text-white hover:scale-105 transition transform duration-300"
+        onClick={handleDelete}
+      >
+        <FiTrash2 className="text-lg" />
+        Delete
+      </button>
+      <Link
+        href={"/"}
+        className="btn bg-secondary hover:bg-secondary/70 text-secondary-content"
+      >
+        Back
+      </Link>
+    </div>
+  </div>
+
+  {/* Parents & Guardian */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <InfoCard
+      title="Father"
+      value={`${student.fatherName} - ${student.fatherOccupation}`}
+      num={student.fatherMobile}
+      color="text-primary"
+      border="border-primary"
+    />
+    <InfoCard
+      title="Mother"
+      value={`${student.motherName} - ${student.motherOccupation}`}
+      num={student.motherMobile}
+      color="text-pink-600"
+      border="border-pink-600"
+    />
+    <InfoCard
+      title={`Guardian (${student.guardianRelation})`}
+      value={`${student.guardianName} - ${student.guardianOccupation}`}
+      num={student.guardianMobile}
+      color="text-indigo-600"
+      border="border-indigo-600"
+    />
+  </div>
+
+  {/* Address */}
+  <div className="card bg-gradient-to-r from-primary/5 to-secondary/5 shadow-xl p-3 rounded-xl border-l-4 border-indigo-300">
+    <h2 className="font-bold text-lg mb-3 text-secondary">Address</h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      <p>
+        <span className="font-semibold">Present:</span>{" "}
+        {student.presentAddress}
+      </p>
+      <p>
+        <span className="font-semibold">Permanent:</span>{" "}
+        {student.permanentAddress}
+      </p>
+      <p>
+        <span className="font-semibold">City:</span> {student.city}
+      </p>
+    </div>
+  </div>
+
+  {/* Fees */}
+  <div className="card bg-gradient-to-r from-primary/5 to-secondary/5 shadow-xl p-3 rounded-xl border-l-4 border-primary">
+    <h2 className="font-bold text-lg mb-3 text-indigo-700">Fees</h2>
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <p>
+        Admission:{" "}
+        <span className="font-semibold text-indigo-600">
+          {student.admissionFee} Tk
+        </span>
+      </p>
+      <p>
+        Monthly:{" "}
+        <span className="font-semibold text-indigo-600">
+          {student.monthlyFee} Tk
+        </span>
+      </p>
+      <p>
+        Food:{" "}
+        <span className="font-semibold text-indigo-600">
+          {student.foodFee} Tk
+        </span>
+      </p>
+      <p>
+        Others:{" "}
+        <span className="font-semibold text-indigo-600">
+          {student.othersFee} Tk
+        </span>
+      </p>
+    </div>
+    <p className="font-extrabold mt-4 text-right text-lg md:text-xl text-indigo-800">
+      Total: {student.totalFee} Tk
+    </p>
+  </div>
+</div>
+
   );
 }

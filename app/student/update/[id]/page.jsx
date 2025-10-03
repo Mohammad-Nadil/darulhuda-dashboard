@@ -110,7 +110,6 @@ const page = () => {
     }
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -142,32 +141,33 @@ const page = () => {
   }
 
   return (
-    <div className=" mx-auto   rounded-2xl ">
-      <Toaster position="top-center"  />
-      <h1 className="text-3xl font-bold text-indigo-700 mb-4">
+    <div className=" mx-auto  pb-5">
+      <Toaster position="top-center" />
+      <h1 className="text-2xl md:text-3xl font-bold text-indigo-700 mb-6">
         Update Student
       </h1>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-6">
         {/* Basic Info */}
-        <div className=" flex  gap-2">
-          <div className="img w-1/6">
-            <FileInput
-              file={file}
-              setFile={setFile}
-              preview={preview}
-              setPreview={setPreview}
-            />
+        <div className="flex flex-col lg:flex-row gap-4">
+          <div className="lg:w-1/6 flex ">
+            <div className="aspect-[3/4] lg:aspect-square w-1/2 lg:w-full">
+              <FileInput
+                file={file}
+                setFile={setFile}
+                preview={preview}
+                setPreview={setPreview}
+              />
+            </div>
           </div>
-          <div className=" w-5/6 grid grid-cols-3 gap-2">
+          <div className="w-full md:w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 items-start">
             <input
               type="text"
               name="name"
               placeholder="Student Name"
               value={student.name}
               onChange={handleChange}
-              className="input input-bordered w-full col-span-2"
-              
+              className="input input-bordered w-full md:col-span-2"
             />
             <input
               type="text"
@@ -176,13 +176,12 @@ const page = () => {
               value={student.rollNumber}
               onChange={handleChange}
               className="input input-bordered w-full"
-              required
             />
             <select
               name="className"
               value={student.className}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="select select-bordered w-full"
             >
               <option value="">Select Class</option>
               {jamat.map((cls) => (
@@ -195,7 +194,7 @@ const page = () => {
               name="branch"
               value={student.branch}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="select select-bordered w-full"
             >
               <option value="">Select Branch</option>
               {["male", "female"].map((branch) => (
@@ -208,7 +207,7 @@ const page = () => {
               type="number"
               name="age"
               placeholder="Age"
-              value={student.age || ""}
+              value={student.age}
               onChange={handleChange}
               className="input input-bordered w-full"
             />
@@ -216,7 +215,7 @@ const page = () => {
               name="gender"
               value={student.gender}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="select select-bordered w-full"
             >
               <option value="">Select Gender</option>
               <option value="male">Male</option>
@@ -226,23 +225,19 @@ const page = () => {
               name="bloodGroup"
               value={student.bloodGroup}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="select select-bordered w-full"
             >
               <option value="">Select Blood Group</option>
-              <option value="A+">A+</option>
-              <option value="A-">A-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
+              {["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"].map((bg) => (
+                <option key={bg} value={bg}>
+                  {bg}
+                </option>
+              ))}
             </select>
             <input
               type="date"
               name="dob"
-              placeholder="Date of Birth"
-              value={student.dob || ""}
+              value={student.dob}
               onChange={handleChange}
               className="input input-bordered w-full"
             />
@@ -250,18 +245,16 @@ const page = () => {
         </div>
 
         {/* Parents Info */}
-        <div className="flex flex-col gap-2">
-          <div className="grid grid-cols-1 md:grid-cols-10 gap-2">
-            <h2 className="font-bold text-indigo-600 flex items-center">
-              Father :
-            </h2>
+        <div className="space-y-3">
+          <h2 className="font-bold text-indigo-600">Parents Info</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <input
               type="text"
               name="fatherName"
               placeholder="Father Name"
               value={student.fatherName}
               onChange={handleChange}
-              className="input input-bordered w-full col-span-3"
+              className="input input-bordered w-full"
             />
             <input
               type="text"
@@ -269,7 +262,7 @@ const page = () => {
               placeholder="Occupation"
               value={student.fatherOccupation}
               onChange={handleChange}
-              className="input input-bordered w-full col-span-3"
+              className="input input-bordered w-full"
             />
             <input
               type="text"
@@ -277,21 +270,18 @@ const page = () => {
               placeholder="Mobile"
               value={student.fatherMobile}
               onChange={handleChange}
-              className="input input-bordered w-full col-span-3"
+              className="input input-bordered w-full"
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-10 gap-2">
-            <h2 className="font-bold mb-1 text-pink-600 flex items-center">
-              Mother :
-            </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <input
               type="text"
               name="motherName"
               placeholder="Mother Name"
               value={student.motherName}
               onChange={handleChange}
-              className="input input-bordered w-full col-span-3"
+              className="input input-bordered w-full"
             />
             <input
               type="text"
@@ -299,7 +289,7 @@ const page = () => {
               placeholder="Occupation"
               value={student.motherOccupation}
               onChange={handleChange}
-              className="input input-bordered w-full col-span-3"
+              className="input input-bordered w-full"
             />
             <input
               type="text"
@@ -307,101 +297,22 @@ const page = () => {
               placeholder="Mobile"
               value={student.motherMobile}
               onChange={handleChange}
-              className="input input-bordered w-full col-span-3"
+              className="input input-bordered w-full"
             />
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-14 gap-1">
-            <h2 className="font-bold mb-1 text-green-600 flex items-center col-span-2 ">
-              Guardian :
-            </h2>
-            <input
-              type="text"
-              name="guardianName"
-              placeholder="Guardian Name"
-              value={student.guardianName}
-              onChange={handleChange}
-              className="input input-bordered w-full col-span-3 "
-            />
-            <input
-              type="text"
-              name="guardianRelation"
-              placeholder="Relation"
-              value={student.guardianRelation}
-              onChange={handleChange}
-              className="input input-bordered w-full col-span-3 "
-            />
-            <input
-              type="text"
-              name="guardianOccupation"
-              placeholder="Occupation"
-              value={student.guardianOccupation}
-              onChange={handleChange}
-              className="input input-bordered w-full col-span-3 "
-            />
-            <input
-              type="text"
-              name="guardianMobile"
-              placeholder="Mobile"
-              value={student.guardianMobile}
-              onChange={handleChange}
-              className="input input-bordered w-full col-span-3 "
-            />
-          </div>
-        </div>
-
-        {/* Additional Info */}
-        <div className="grid grid-cols-5 gap-2">
-          <h2 className="font-bold text-indigo-600  ">Additional info :</h2>
-          <div className="flex items-center  gap-4 col-span-2">
-            <label className="flex items-center gap-2 col-span-1">
-              <input
-                type="checkbox"
-                name="running"
-                checked={student.running}
-                onChange={handleChange}
-              />
-              Running
-            </label>
-            <label className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                name="newStudent"
-                checked={student.newStudent}
-                onChange={handleChange}
-              />
-              New Student
-            </label>
-          </div>
-          <input
-            type="text"
-            name="previousSchool"
-            placeholder="Previous School"
-            value={student.previousSchool}
-            onChange={handleChange}
-            className="input input-bordered col-span-3 w-full"
-          />
-          <input
-            type="text"
-            name="previousClass"
-            placeholder="Previous Class"
-            value={student.previousClass}
-            onChange={handleChange}
-            className="input input-bordered w-full col-span-2"
-          />
         </div>
 
         {/* Address */}
         <div>
-          <h2 className="font-bold mb-1 text-indigo-600">Address</h2>
-          <div className="grid grid-cols-1 md:grid-cols-7 gap-2">
+          <h2 className="font-bold text-indigo-600">Address</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <input
               type="text"
               name="presentAddress"
               placeholder="Present Address"
               value={student.presentAddress}
               onChange={handleChange}
-              className="input input-bordered w-full col-span-3"
+              className="input input-bordered w-full"
             />
             <input
               type="text"
@@ -409,7 +320,7 @@ const page = () => {
               placeholder="Permanent Address"
               value={student.permanentAddress}
               onChange={handleChange}
-              className="input input-bordered w-full col-span-3"
+              className="input input-bordered w-full"
             />
             <input
               type="text"
@@ -417,7 +328,7 @@ const page = () => {
               placeholder="City"
               value={student.city}
               onChange={handleChange}
-              className="input input-bordered w-full p-2"
+              className="input input-bordered w-full"
             />
           </div>
         </div>
@@ -425,78 +336,41 @@ const page = () => {
         {/* Fees */}
         <div>
           <h2 className="font-bold text-indigo-600 text-lg">Fees</h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            <div className="flex flex-col">
-              <label className="mb-1 font-medium text-gray-700">
-                Admission Fee
-              </label>
-              <input
-                type="number"
-                name="admissionFee"
-                value={student.admissionFee}
-                onChange={handleChange}
-                className="input input-bordered w-full"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label className="mb-1 font-medium text-gray-700">
-                Monthly Fee
-              </label>
-              <input
-                type="number"
-                name="monthlyFee"
-                value={student.monthlyFee}
-                onChange={handleChange}
-                className="input input-bordered w-full"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label className="mb-1 font-medium text-gray-700">Food Fee</label>
-              <input
-                type="number"
-                name="foodFee"
-                value={student.foodFee}
-                onChange={handleChange}
-                className="input input-bordered w-full"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label className="mb-1 font-medium text-gray-700">
-                Others Fee
-              </label>
-              <input
-                type="number"
-                name="othersFee"
-                value={student.othersFee}
-                onChange={handleChange}
-                className="input input-bordered w-full"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label className="mb-1 font-medium text-gray-700">
-                Total Fee
-              </label>
-              <input
-                type="number"
-                name="totalFee"
-                value={student.totalFee}
-                onChange={handleChange}
-                readOnly
-                className="input input-bordered w-full"
-              />
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
+            {[
+              "admissionFee",
+              "monthlyFee",
+              "foodFee",
+              "othersFee",
+              "totalFee",
+            ].map((field, i) => (
+              <div key={i} className="flex flex-col">
+                <label className="mb-1 font-medium text-gray-700 capitalize">
+                  {field.replace("Fee", " Fee")}
+                </label>
+                <input
+                  type="number"
+                  name={field}
+                  value={student[field]}
+                  onChange={handleChange}
+                  readOnly={field === "totalFee"}
+                  className="input input-bordered w-full"
+                />
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="flex justify-end gap-5">
+        {/* Actions */}
+        <div className="flex justify-end gap-4">
           <Link href={`/student/${id}`} className="btn btn-primary">
-            back{" "}
+            back
           </Link>
           <button
             type="submit"
-            className="btn bg-gradient-to-r from-primary to-secondary text-primary-content  "
+            className="btn bg-gradient-to-r from-primary to-secondary text-white"
           >
-            Update Student
+            Add Student
           </button>
         </div>
       </form>
