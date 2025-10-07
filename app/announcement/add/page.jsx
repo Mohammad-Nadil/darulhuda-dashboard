@@ -49,7 +49,7 @@ const Page = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="flex flex-col gap-6 ">
+    <div className="flex flex-col gap-6 pb-5">
       <Toaster position="top-center" reverseOrder={false} />
       <h2 className="text-2xl font-bold text-primary">Add Announcement</h2>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">

@@ -11,7 +11,7 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
-import { Image } from "antd";
+import Image from "next/image";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -50,7 +50,6 @@ const Navbar = () => {
       >
         <a href="/" className="flex justify-center">
           <Image
-            preview={false}
             src="/logo.png"
             alt="Logo"
             width={80}

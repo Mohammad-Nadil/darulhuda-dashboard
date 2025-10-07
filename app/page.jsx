@@ -69,7 +69,7 @@ const StudentPage = () => {
         </Link>
       </div>
 
-      <div className="overflow-auto flex flex-col gap-y-10 font-semibold">
+      <div className="overflow-auto scrollbar-hide flex flex-col gap-y-10 font-semibold">
         {classList.map((cls) => {
           const filtered = filterStudents(cls.studentsOfClass);
           if (filtered.length === 0) return null;

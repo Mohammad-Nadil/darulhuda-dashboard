@@ -102,7 +102,7 @@ const Page = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="py-2 flex flex-col h-full w-full pt-5">
+    <div className=" flex flex-col h-full w-full py-5">
       <Toaster position="top-center" reverseOrder={false} />
       <div className="flex flex-row justify-between items-center gap-4 mb-6">
         <input
@@ -119,7 +119,7 @@ const Page = () => {
           Add <span className="hidden sm:inline">Announcement</span>
         </Link>
       </div>
-      <div className="flex-1 overflow-auto">
+      <div className="flex-1 overflow-auto scrollbar-hide">
         {filteredAnnouncements.length > 0 ? (
           <div className="grid  sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredAnnouncements.map((ann) => (

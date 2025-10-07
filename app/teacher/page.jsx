@@ -54,7 +54,7 @@ const TeacherPage = () => {
           placeholder="Search teacher by name..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="input input-bordered w-2/3 shadow-sm"
+          className="input input-bordered md:w-2/3 shadow-sm"
         />
         <Link
           href="/teacher/add"
@@ -64,7 +64,7 @@ const TeacherPage = () => {
         </Link>
       </div>
 
-      <div className="overflow-auto flex flex-col gap-y-10 font-semibold">
+      <div className="overflow-auto scrollbar-hide flex flex-col gap-y-10 font-semibold">
         {classList.map((cls) => {
           const filtered = filterTeachers(cls.teachersOfClass);
           if (filtered.length === 0) return null;

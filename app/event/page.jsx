@@ -115,7 +115,7 @@ const Page = () => {
           Add <span className="hidden md:inline" >Event</span>
         </Link>
       </div>
-      <div className="flex-1 overflow-auto">
+      <div className="flex-1 overflow-auto scrollbar-hide">
         {filteredEvents.length > 0 ? (
           <div className="  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredEvents.map((event) => (

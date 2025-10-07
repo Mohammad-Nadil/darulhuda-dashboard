@@ -222,24 +222,33 @@ const Page = () => {
         </div>
 
         {/* Parents Info */}
-        <div className="space-y-3">
-          <h2 className="font-bold text-indigo-600">Parents Info</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <input
-              type="text"
-              name="fatherName"
-              placeholder="Father Name"
-              value={student.fatherName}
-              onChange={handleChange}
-              className="input input-bordered w-full"
-            />
+        <div className="space-y-6 ">
+          <h2 className="text-xl font-bold text-indigo-600 border-b-2 border-indigo-100 pb-2 mb-4">
+            Parents Info
+          </h2>
+
+          {/* Father Info */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-3 md:gap-y-0 gap-x-4">
+            <label className=" md:mb-2 text-gray-600 font-medium md:col-span-3">
+              Father Details
+            </label>
+            <div className="flex flex-col">
+              <input
+                type="text"
+                name="fatherName"
+                placeholder="Father Name"
+                value={student.fatherName}
+                onChange={handleChange}
+                className="input input-bordered w-full focus:border-indigo-500 focus:ring focus:ring-indigo-200 rounded-lg transition"
+              />
+            </div>
             <input
               type="text"
               name="fatherOccupation"
               placeholder="Occupation"
               value={student.fatherOccupation}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full focus:border-indigo-500 focus:ring focus:ring-indigo-200 rounded-lg transition"
             />
             <input
               type="text"
@@ -247,26 +256,32 @@ const Page = () => {
               placeholder="Mobile"
               value={student.fatherMobile}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full focus:border-indigo-500 focus:ring focus:ring-indigo-200 rounded-lg transition"
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <input
-              type="text"
-              name="motherName"
-              placeholder="Mother Name"
-              value={student.motherName}
-              onChange={handleChange}
-              className="input input-bordered w-full"
-            />
+          {/* Mother Info */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-3 md:gap-y-0 gap-x-4">
+            <label className=" md:mb-2 text-gray-600 font-medium md:col-span-3">
+              Mother Details
+            </label>
+            <div className="flex flex-col">
+              <input
+                type="text"
+                name="motherName"
+                placeholder="Mother Name"
+                value={student.motherName}
+                onChange={handleChange}
+                className="input input-bordered w-full focus:border-pink-500 focus:ring focus:ring-pink-200 rounded-lg transition"
+              />
+            </div>
             <input
               type="text"
               name="motherOccupation"
               placeholder="Occupation"
               value={student.motherOccupation}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full focus:border-pink-500 focus:ring focus:ring-pink-200 rounded-lg transition"
             />
             <input
               type="text"
@@ -274,8 +289,51 @@ const Page = () => {
               placeholder="Mobile"
               value={student.motherMobile}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full focus:border-pink-500 focus:ring focus:ring-pink-200 rounded-lg transition"
             />
+          </div>
+
+          {/* Guardian Info */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-y-3 md:gap-y-0 gap-x-4">
+          <label className=" md:mb-2 text-gray-600 font-medium md:col-span-4">
+                Guardian Details
+              </label>  <div className="flex flex-col">
+              
+              <input
+                type="text"
+                name="guardianName"
+                placeholder="Guardian Name"
+                value={student.guardianName}
+                onChange={handleChange}
+                className="input input-bordered w-full focus:border-green-500 focus:ring focus:ring-green-200 rounded-lg transition"
+              />
+            </div>
+            <input
+              type="text"
+              name="guardianRelation"
+              placeholder="Relation"
+              value={student.guardianRelation}
+              onChange={handleChange}
+              className="input input-bordered w-full focus:border-green-500 focus:ring focus:ring-green-200 rounded-lg transition"
+            />
+            <input
+              type="text"
+              name="guardianOccupation"
+              placeholder="Occupation"
+              value={student.guardianOccupation}
+              onChange={handleChange}
+              className="input input-bordered w-full focus:border-green-500 focus:ring focus:ring-green-200 rounded-lg transition"
+            />
+            <div className="flex flex-col">
+              <input
+                type="text"
+                name="guardianMobile"
+                placeholder="Mobile"
+                value={student.guardianMobile}
+                onChange={handleChange}
+                className="input input-bordered w-full focus:border-green-500 focus:ring focus:ring-green-200 rounded-lg transition"
+              />
+            </div>
           </div>
         </div>
 
@@ -289,7 +347,7 @@ const Page = () => {
               placeholder="Present Address"
               value={student.presentAddress}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full md:col-span-3"
             />
             <input
               type="text"
@@ -297,7 +355,7 @@ const Page = () => {
               placeholder="Permanent Address"
               value={student.permanentAddress}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full md:col-span-2"
             />
             <input
               type="text"

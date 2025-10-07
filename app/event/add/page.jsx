@@ -46,12 +46,12 @@ const Page = () => {
   };
   if (loading) return <Loader />;
   return (
-    <div className="flex flex-col gap-6 p-6">
+    <div className="flex flex-col gap-6 md:p-6">
       <Toaster position="top-center" />
       <h2 className="text-2xl font-bold text-primary">Add Event</h2>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div className="w-full">
-          <div className="img w-1/3 aspect-video">
+          <div className="img md:w-1/3 aspect-video">
             <FileInput
               file={file}
               setFile={setFile}
